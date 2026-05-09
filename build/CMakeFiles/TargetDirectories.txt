@@ -1,0 +1,3 @@
+/home/senuk/mac/build/CMakeFiles/MAC.dir
+/home/senuk/mac/build/CMakeFiles/edit_cache.dir
+/home/senuk/mac/build/CMakeFiles/rebuild_cache.dir

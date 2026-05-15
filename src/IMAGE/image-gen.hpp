@@ -3,12 +3,15 @@
 
 #include "IMAGE/image-global.hpp"
 #include <string>
+#include <filesystem>
 
 // I would like to define some metric for determining
 // whether an image is expected to behave nicely (i.e well lit)
 // This way we can differentiate MAC's general
 // performance and MAC's performance on "clean" images
 // #define MIN_CLEAN_ILLUMINATION_ANGLE
+
+namespace fs = std::filesystem;
 
 namespace image{
 
@@ -102,7 +105,7 @@ class GenericImageGenerator{
     * 
     */
 
-    virtual void generateImage(Vec3 position, Quaternion rotation, std::string path, double focalLength = FOCAL_LENGTH, int xResolution = X_RESOLUTION, int yResolution = Y_RESOLUTION, double pixelPitch = PIXEL_PITCH) = 0;
+    virtual void generateImage(Vec3 position, Quaternion rotation, std::string path, double focalLength = FOCAL_LENGTH, int xResolution = X_RESOLUTION, int yResolution = Y_RESOLUTION, double pixelPitch = X_PIXEL_PITCH) = 0;
 };
 
 class ExampleImageGenerator : public GenericImageGenerator {
@@ -122,7 +125,10 @@ class ExampleImageGenerator : public GenericImageGenerator {
     * 
     */
 
-    void generateImage(Vec3 position, Quaternion rotation, std::string path, double focalLength = FOCAL_LENGTH, int xResolution = X_RESOLUTION, int yResolution = Y_RESOLUTION, double pixelPitch = PIXEL_PITCH) override;
+    void generateImage(Vec3 position, Quaternion rotation, std::string path, double focalLength = FOCAL_LENGTH, int xResolution = X_RESOLUTION, int yResolution = Y_RESOLUTION, double pixelPitch = X_PIXEL_PITCH) override;
+
+    private:
+
 };
 
 }
